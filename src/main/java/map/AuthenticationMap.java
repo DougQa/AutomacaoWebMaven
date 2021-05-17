@@ -11,7 +11,7 @@ public class AuthenticationMap {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//*[@id=\"center_column\"]/h1")
+    @FindBy(xpath = "//*[@id='center_column']/h1")
     protected WebElement TitleAuthentication;
 
     @FindBy(id = "email_create")
