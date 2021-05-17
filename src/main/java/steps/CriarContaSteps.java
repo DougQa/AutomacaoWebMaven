@@ -12,15 +12,24 @@ public class CriarContaSteps {
 
     public static WebDriver driver;
 
+    //Não merge essa parte, está faltando os imports
+    AuthenticationPage authenticationPage;
+    
+    @Before
+    public void setup(){
+        driver = Base.getWebDriver();
+        authenticationPage = new AuthenticationPage(driver);
+    }
+    
     @Given("^que estou na tela de pré cadastro$")
     public void que_estou_na_tela_de_pré_cadastro() {
-        new AuthenticationPage(driver).validaPaginaAutenticacao();
+        authenticationPage.validaPaginaAutenticacao();
     }
 
     @And("^insiro um email valido$")
     public void insiro_um_email_valido() {
-        new AuthenticationPage(driver).digiteEmailValido();
-        new AuthenticationPage(driver).cliqueNoBotaoLogarHome();
+        authenticationPage.digiteEmailValido();
+        authenticationPage.cliqueNoBotaoLogarHome();
     }
 
     @When("^redirecionar para a tela seguinte$")
